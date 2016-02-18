@@ -1,0 +1,117 @@
+
+<template name="navbar">
+<ul id="menu">
+     
+    <li><a href="/">Home</a><!-- Begin Home Item -->
+    </li><!-- End Home Item -->
+ 
+    <li><a href="/level3" class="drop">level3</a>
+    
+    </li>
+ 
+    <li><a href="/level2" class="drop">level2</a>
+    
+    </li>
+ 
+    <li><a href="/level1" class="drop">level1</a>
+    
+    </li>
+	
+	<!-- <li><a href="/" class="drop">toBeDetermined</a>
+     
+    </li> -->
+	
+    <li class="menu_right"><a>My Account</a><!-- Begin 1 columns Item -->
+		<div class="dropdown_2columns">
+			<div class="col_1">
+                <p>{{> loginButtons align="left"}}</p>
+            </div>
+			<div class="col_1">
+                <a href="/myAccount" class="strong">Parking out</a>
+            </div>
+			<div class="col_1">
+                <a href="/myAccount" class="strong">Check status</a>
+            </div>
+		</div>
+    </li><!-- End 1 columns Item -->
+ 
+ 
+</ul>
+<br/>
+</template>
+
+<template name="Welcome">
+	<video class="center" width="640" height="352" controls>
+	<source src="movie.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	<div class="instruction">This website is a demo of the newly invented parking machine system.
+	<br/>The parking lot has three levels. Each level has 100 spaces to park. 
+	User can park their cars only after logging into the system. They can also check their car information.
+	<br/>Click the park button after you log in. You can test the function by using two browsers.
+	</div>
+</template>
+
+<template name="parkinglot3">
+	<div class="container js-container" >
+		<h3><center>level 3</center></h3>
+		<div class="row">
+		{{#each lot}} <!-- add lot information in the mongo collection -->
+			<div class="col-xs-6 col-md-2 col-lg-2" id="{{_id}}">
+				<div class="thumbnail">
+
+				<a href="#"><img class="single-img" src="{{img_src}}"/></a>
+				lot: {{num}}
+				</div>
+				<button href="#" class="confirm-park">Park</button>
+			</div> <!-- / col -->
+		{{/each}}
+		</div> <!-- / row -->
+	</div><!-- / container -->
+</template>
+
+<template name="parkinglot2">
+	<div class="container js-container" >
+		<h3><center>level 2</center></h3>
+		<div class="row">
+		{{#each lot}} <!-- add lot information in the mongo collection -->
+			<div class="col-xs-6 col-md-2 col-lg-2" id="{{_id}}">
+				<div class="thumbnail">
+
+				<a href="#"><img class="single-img" src="{{img_src}}"/></a>
+				lot: {{num}}
+				</div>
+				<button href="#" class="confirm-park">Park</button>
+			</div> <!-- / col -->
+		{{/each}}
+		</div> <!-- / row -->
+	</div><!-- / container -->
+</template>
+
+<template name="parkinglot1">
+	<div class="container js-container" >
+		<h3><center>level 1</center></h3>
+		<div class="row">
+		{{#each lot}} <!-- add lot information in the mongo collection -->
+			<div class="col-xs-6 col-md-2 col-lg-2" id="{{_id}}">
+				<div class="thumbnail">
+
+				<a href="#"><img class="single-img" src="{{img_src}}"/></a>
+				lot: {{num}}
+				</div>
+				<button href="#" class="confirm-park">Park</button>
+			</div> <!-- / col -->
+		{{/each}}
+		</div> <!-- / row -->
+	</div><!-- / container -->
+</template>
+
+<template name="account">
+	<div class="container js-container" >
+		Your account details:
+		<div>Car level: {{CarLevel}}</div>
+		<div>Car location: {{CarLocation}}</div>
+		<div>Car status: {{Status}}</div>
+		<button href="/level3" class="confirm-park-out">Park out</button>
+	</div><!-- / container -->
+</template>
